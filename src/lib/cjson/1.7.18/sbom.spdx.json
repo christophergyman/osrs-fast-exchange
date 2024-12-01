@@ -1,0 +1,95 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "spdxVersion": "SPDX-2.3",
+  "name": "SBOM-SPDX-cjson-1.7.18",
+  "creationInfo": {
+    "created": "2024-11-30T23:26:55Z",
+    "creators": [
+      "Tool: https://github.com/Homebrew/brew@4.4.8"
+    ]
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "https://formulae.brew.sh/spdx/cjson-1.7.18.json",
+  "documentDescribes": [
+    "SPDXRef-Archive-cjson-src",
+    "SPDXRef-Compiler",
+    "SPDXRef-Bottle-cjson"
+  ],
+  "files": [
+
+  ],
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Archive-cjson-src",
+      "name": "cjson",
+      "versionInfo": "1.7.18",
+      "filesAnalyzed": false,
+      "licenseDeclared": "NOASSERTION",
+      "builtDate": "2024-05-13 10:26:15 UTC",
+      "licenseConcluded": "MIT",
+      "downloadLocation": "https://github.com/DaveGamble/cJSON/archive/refs/tags/v1.7.18.tar.gz",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+
+      ],
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "3aa806844a03442c00769b83e99970be70fbef03735ff898f4811dd03b9f5ee5"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Compiler",
+      "name": "clang",
+      "versionInfo": "15.4",
+      "filesAnalyzed": false,
+      "licenseDeclared": "NOASSERTION",
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "checksums": [
+
+      ],
+      "externalRefs": [
+
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Bottle-cjson",
+      "name": "cjson",
+      "versionInfo": "1.7.18",
+      "filesAnalyzed": false,
+      "licenseDeclared": "NOASSERTION",
+      "builtDate": "2024-05-13 10:26:15 UTC",
+      "licenseConcluded": "MIT",
+      "downloadLocation": "https://ghcr.io/v2/homebrew/core/cjson/blobs/sha256:6deee0399f8b92240122c7cb8dee5a3f3e7b26f9cec147b9d0baffb3c6a804dc",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:brew/homebrew/core/cjson@1.7.18",
+          "referenceType": "purl"
+        }
+      ],
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "6deee0399f8b92240122c7cb8dee5a3f3e7b26f9cec147b9d0baffb3c6a804dc"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-File-cjson",
+      "relationshipType": "PACKAGE_OF",
+      "relatedSpdxElement": "SPDXRef-Archive-cjson-src"
+    },
+    {
+      "spdxElementId": "SPDXRef-Compiler",
+      "relationshipType": "BUILD_TOOL_OF",
+      "relatedSpdxElement": "SPDXRef-Package-cjson-src"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "homebrew_version": "4.2.21-117-gd7e81be",
+  "used_options": [
+
+  ],
+  "unused_options": [
+
+  ],
+  "built_as_bottle": true,
+  "poured_from_bottle": true,
+  "loaded_from_api": true,
+  "installed_as_dependency": true,
+  "installed_on_request": true,
+  "changed_files": [
+    "lib/cmake/cJSON/cJSONConfig.cmake",
+    "lib/cmake/cJSON/cjson-release.cmake",
+    "lib/cmake/cJSON/cjson.cmake",
+    "lib/cmake/cJSON/cjson_utils-release.cmake",
+    "lib/cmake/cJSON/cjson_utils.cmake",
+    "lib/pkgconfig/libcjson.pc",
+    "lib/pkgconfig/libcjson_utils.pc"
+  ],
+  "time": 1733009215,
+  "source_modified_time": 1715595975,
+  "compiler": "clang",
+  "aliases": [
+
+  ],
+  "runtime_dependencies": [
+
+  ],
+  "source": {
+    "spec": "stable",
+    "versions": {
+      "stable": "1.7.18",
+      "head": null,
+      "version_scheme": 0
+    },
+    "path": "/Users/chezu/Library/Caches/Homebrew/api/formula.jws.json",
+    "tap_git_head": null,
+    "tap": "homebrew/core"
+  },
+  "arch": "arm64",
+  "built_on": {
+    "os": "Macintosh",
+    "os_version": "macOS 14.4",
+    "cpu_family": "dunno",
+    "xcode": "15.3",
+    "clt": "15.3.0.0.1.1708646388",
+    "preferred_perl": "5.34"
+  }
+}
