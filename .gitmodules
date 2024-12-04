@@ -1,0 +1,3 @@
+[submodule "src/cpp_code/vendor/json"]
+	path = src/cpp_code/vendor/json
+	url = https://github.com/nlohmann/json
