@@ -1,9 +1,9 @@
 # Todo 
 [x] Mock OSRS Json
-[] Print all elements in json
-    [] key + pair
-    [] Child elements   
-        []  key + pair
+[x] Print all elements in json
+    [x] key + pair
+    [x] Child elements   
+        [x]  key + pair
 [] Curl request to osrs ge
     [] Convert response to json
 [] Parse through response via json parser
