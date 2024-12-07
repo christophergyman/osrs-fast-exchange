@@ -1,5 +1,5 @@
 # Todo 
-[i] Mock OSRS Json
+[x] Mock OSRS Json
 [] Print all elements in json
     [] key + pair
     [] Child elements   
