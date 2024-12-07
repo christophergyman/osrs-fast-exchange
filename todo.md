@@ -4,7 +4,7 @@
     [x] key + pair
     [x] Child elements   
         [x]  key + pair
-[] Curl request to osrs ge
+[x/] Curl request to osrs ge
     [] Convert response to json
 [] Parse through response via json parser
 [] return ID if specific string in json is found (eg "12311", "Bandos Chestplate")

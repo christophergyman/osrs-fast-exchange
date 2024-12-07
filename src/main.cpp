@@ -28,6 +28,7 @@ static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *use
     return size * nmemb;
 }
 
+// curl request
 void curl_request(){
   CURL * curl;
   CURLcode res;
@@ -35,7 +36,7 @@ void curl_request(){
 
   curl = curl_easy_init();
   if(curl){
-    curl_easy_setopt(curl, CURLOPT_URL, "https://gnu.terminalroot.com.br/ip.php");
+    curl_easy_setopt(curl, CURLOPT_URL, "https://www.google.com");
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
     res = curl_easy_perform(curl);
@@ -48,11 +49,12 @@ void curl_request(){
 
 
 int main (){
-    // parse stream into nlohmann json objec
-    std::string filename = "api_call.json";
-    nlohmann::json json_data = get_json_obj(filename);
-
-    // print out the json
-    json_dump(json_data);
+    // // parse stream into nlohmann json objec
+    // std::string filename = "api_call.json";
+    // nlohmann::json json_data = get_json_obj(filename);
+    // // print out the json
+    // json_dump(json_data);
+    //
+    curl_request();
     return 0;
 }
