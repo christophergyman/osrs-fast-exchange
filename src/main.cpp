@@ -28,15 +28,23 @@ static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *use
 }
 
 // curl request
-void curl_request(){
+nlohmann::json curl_request(const int &item_id){
+    // update request string to include the item_id
+    std::string string_item_id = std::to_string(item_id);
+    std::string request_string = "http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=8";
+
+    
+    // curl request objects
     CURL *curl;
     CURLcode res;
-    std::string readBuffer;
+    std::string read_buffer;
 
+    // empty header list
     struct curl_slist *list = NULL;
 
     curl = curl_easy_init();
     if(curl){
+        // curl options
         curl_easy_setopt(curl, CURLOPT_URL, "http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=8");
 
         list = curl_slist_append(list, "Accept: application/json");
@@ -46,24 +54,25 @@ void curl_request(){
         curl_easy_setopt(curl, CURLOPT_HTTPGET, 1);
         curl_easy_setopt(curl, CURLOPT_HTTPHEADER, &list);
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &read_buffer);
 
         res = curl_easy_perform(curl);
         curl_easy_cleanup(curl);
 
-        std::cout << readBuffer << std::endl;
+        nlohmann::json response_json = read_buffer;
+        return response_json;
+        // std::cout << read_buffer << std::endl;
+    } 
+    else{
+        std:: cout << "[error]: failed to create curl response request";
+        return -1;
     }
-    return;
 }
 
 
 int main (){
-    // // parse stream into nlohmann json objec
-    // std::string filename = "api_call.json";
-    // nlohmann::json json_data = get_json_obj(filename);
-    // // print out the json
-    // json_dump(json_data);
-    //
-    curl_request();
+    int item_id = 8;
+    nlohmann::json json_data = curl_request(item_id);
+    //std::cout << json_data.at("icon");
     return 0;
 }

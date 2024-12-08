@@ -4,9 +4,9 @@
     [x] key + pair
     [x] Child elements   
         [x]  key + pair
-[x/] Curl request to osrs ge
-    [] Convert response to json
-[] Parse through response via json parser
+[x] Curl request to osrs ge
+    [x] Convert response to json
+[x] Parse through response via json parser
 [] return ID if specific string in json is found (eg "12311", "Bandos Chestplate")
 [] Check the user input and try to find in the json object
 [] print out the current value of the item
