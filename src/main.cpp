@@ -12,8 +12,7 @@ nlohmann::json get_json_obj(const std::string &filename){
     std::ifstream stream{cstr};
 
     // convert datastream to nlohmann json object
-    nlohmann::json data (nlohmann::json::parse(stream));
-    return data;
+    nlohmann::json data (nlohmann::json::parse(stream)); return data;
 }
 
 // function to print out json value
@@ -30,20 +29,30 @@ static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *use
 
 // curl request
 void curl_request(){
-  CURL * curl;
-  CURLcode res;
-  std::string readBuffer;
+    CURL *curl;
+    CURLcode res;
+    std::string readBuffer;
 
-  curl = curl_easy_init();
-  if(curl){
-    curl_easy_setopt(curl, CURLOPT_URL, "https://www.google.com");
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
-    res = curl_easy_perform(curl);
-    curl_easy_cleanup(curl);
+    struct curl_slist *list = NULL;
 
-    std::cout << readBuffer << std::endl;
-  }
+    curl = curl_easy_init();
+    if(curl){
+        curl_easy_setopt(curl, CURLOPT_URL, "http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=8");
+
+        list = curl_slist_append(list, "Accept: application/json");
+        list = curl_slist_append(list, "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+
+        curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+        curl_easy_setopt(curl, CURLOPT_HTTPGET, 1);
+        curl_easy_setopt(curl, CURLOPT_HTTPHEADER, &list);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+
+        res = curl_easy_perform(curl);
+        curl_easy_cleanup(curl);
+
+        std::cout << readBuffer << std::endl;
+    }
     return;
 }
 
